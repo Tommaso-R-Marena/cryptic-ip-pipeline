@@ -1,0 +1,10 @@
+name,category,pdb,ip_type,n_residues,total_pockets,best_pocket_num,pocket_residue_overlap,pocket_overlap_fraction,ip_mean_sasa,ip_median_sasa,pocket_mean_sasa,basic_5A,basic_8A,net_charge_8A,pocket_depth,burial_fraction,fpocket_score,fpocket_druggability,fpocket_volume,composite_score,score_depth,score_sasa,score_charge,score_basic
+ADAR2_crystal,positive,1ZY7,IP6,740,40,1,4,0.667,65.85,46.34,31.02,2,8,6,23.14,0.425,,,,0.5453,0.7715,0.561,0.4,0.25
+ADAR2_alphafold,positive,AF-P78563,IP6,741,38,2,1,0.167,23.55,24.26,65.82,2,4,3,67.98,0.79,,,,0.6726,1.0,0.843,0.2,0.25
+HDAC1_crystal,positive,5ICN,IP4,541,26,22,4,0.8,54.86,54.86,40.86,2,5,4.5,26.51,0.613,,,,0.5846,0.8837,0.6343,0.3,0.25
+HDAC3_crystal,positive,4A69,IP4,875,44,1,2,0.4,23.87,2.9,41.28,0,2,-2,46.86,0.882,,,,0.5943,1.0,0.8409,0.0,0.0
+Pds5B_crystal,positive,5HDT,IP6,2095,215,21,1,0.2,121.11,143.82,89.05,2,3,0,35.75,0.394,,,,0.4049,1.0,0.1926,0.0,0.25
+PLCd1_PH,negative,1MAI,IP3,119,4,2,5,0.833,37.94,25.3,63.61,2,5,4,14.3,0.575,,,,0.4953,0.4767,0.7471,0.2667,0.25
+Btk_PH,negative,1BTK,IP4,329,19,0,0,0.0,11.35,11.72,,0,3,0.5,9.75,0.237,,,,0.4277,0.3251,0.9243,0.0333,0.0
+DAPP1_PH,negative,1FAO,IP4,100,4,0,0,0.0,,,,0,0,0,0,-0.459,,,,0.2917,0.0,0.8333,0.0,0.0
+Grp1_PH,negative,1FGY,IP4,125,9,2,3,0.5,51.44,40.38,45.81,3,7,4.5,13.54,0.555,,,,0.4816,0.4513,0.6571,0.3,0.375

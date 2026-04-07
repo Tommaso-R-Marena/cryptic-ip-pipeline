@@ -1,0 +1,9 @@
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+biopython>=1.80
+freesasa>=2.1
+pandas>=2.0
+requests>=2.28
+PyYAML>=6.0
+pytest>=7.0

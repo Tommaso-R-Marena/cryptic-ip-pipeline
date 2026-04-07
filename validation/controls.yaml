@@ -1,0 +1,57 @@
+positive_controls:
+  ADAR2:
+    pdb: 1ZY7
+    uniprot: P78563
+    alphafold: AF-P78563-F1
+    ip_type: IP6
+    chain: A
+    coordinating_residues: [K376, K519, R522, R651, K672, W687]
+    reference: "Macbeth et al., Science 2005"
+    notes: "Completely buried IP6; SASA ≈ 0 in crystal; required for folding and catalysis"
+
+  HDAC1:
+    pdb: 5ICN
+    ip_type: IP4
+    chain: A
+    coordinating_residues: [29, 31, 36, 270, 271]
+    reference: "Watson et al., Nature 2012"
+
+  HDAC3:
+    pdb: 4A69
+    ip_type: IP4
+    chain: A
+    coordinating_residues: [29, 31, 36, 265, 266]
+    reference: "Watson et al., Nature 2012"
+
+  Pds5B:
+    pdb: 5HDT
+    ip_type: IP6
+    chain: A
+    coordinating_residues: [1059, 1060, 1086, 1131, 1132]
+    reference: "Lee et al., Cell Reports 2016"
+
+negative_controls:
+  PLCd1_PH:
+    pdb: 1MAI
+    ip_type: IP3
+    chain: A
+    binding_residues: [30, 32, 36, 40, 51, 55]
+    notes: "Surface-exposed canonical PH domain"
+
+  Btk_PH:
+    pdb: 1BTK
+    ip_type: IP4
+    chain: A
+    binding_residues: [12, 28, 29, 33]
+
+  DAPP1_PH:
+    pdb: 1FAO
+    ip_type: IP4
+    chain: A
+    binding_residues: [17, 19, 36, 73]
+
+  Grp1_PH:
+    pdb: 1FGY
+    ip_type: IP4
+    chain: A
+    binding_residues: [267, 271, 273, 276, 280, 303]

@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.env
+*.swp
+*.swo
+node_modules/
+data/pdb/
+data/alphafold/
+data/cleaned/
+data/fpocket_results/
+data/sasa_results/
+data/electrostatics/

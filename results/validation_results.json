@@ -1,0 +1,588 @@
+[
+  {
+    "name": "ADAR2_crystal",
+    "category": "positive",
+    "pdb": "1ZY7",
+    "description": "ADAR2 deaminase (buried IP6)",
+    "ip_type": "IP6",
+    "n_atoms": 5801,
+    "n_residues": 740,
+    "total_sasa": 31344.5,
+    "ip_residue_sasa": [
+      {
+        "resnum": 376,
+        "resname": "LYS",
+        "sasa": 65.8
+      },
+      {
+        "resnum": 519,
+        "resname": "LYS",
+        "sasa": 37.43
+      },
+      {
+        "resnum": 522,
+        "resname": "ARG",
+        "sasa": 48.17
+      },
+      {
+        "resnum": 651,
+        "resname": "LYS",
+        "sasa": 172.96
+      },
+      {
+        "resnum": 672,
+        "resname": "LYS",
+        "sasa": 44.5
+      },
+      {
+        "resnum": 687,
+        "resname": "TRP",
+        "sasa": 26.25
+      }
+    ],
+    "ip_mean_sasa": 65.85,
+    "ip_median_sasa": 46.34,
+    "ip_min_sasa": 26.25,
+    "ip_max_sasa": 172.96,
+    "total_pockets": 40,
+    "best_pocket_num": 1,
+    "pocket_residue_overlap": 4,
+    "pocket_overlap_fraction": 0.667,
+    "pocket_n_lining_residues": 27,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": 31.02,
+    "pocket_median_sasa": 30.57,
+    "basic_5A": 2,
+    "basic_8A": 8,
+    "basic_5A_list": [
+      "LYS690",
+      "LYS629"
+    ],
+    "net_charge_8A": 6,
+    "pocket_depth": 23.14,
+    "burial_fraction": 0.425,
+    "composite_score": 0.5453,
+    "score_depth": 0.7715,
+    "score_sasa": 0.561,
+    "score_charge": 0.4,
+    "score_basic": 0.25
+  },
+  {
+    "name": "ADAR2_alphafold",
+    "category": "positive",
+    "pdb": "AF-P78563",
+    "description": "ADAR2 AlphaFold model",
+    "ip_type": "IP6",
+    "n_atoms": 5689,
+    "n_residues": 741,
+    "total_sasa": 53834.57,
+    "ip_residue_sasa": [
+      {
+        "resnum": 376,
+        "resname": "LYS",
+        "sasa": 32.7
+      },
+      {
+        "resnum": 519,
+        "resname": "GLN",
+        "sasa": 49.19
+      },
+      {
+        "resnum": 522,
+        "resname": "THR",
+        "sasa": 2.36
+      },
+      {
+        "resnum": 651,
+        "resname": "VAL",
+        "sasa": 23.35
+      },
+      {
+        "resnum": 672,
+        "resname": "LEU",
+        "sasa": 8.57
+      },
+      {
+        "resnum": 687,
+        "resname": "LEU",
+        "sasa": 25.16
+      }
+    ],
+    "ip_mean_sasa": 23.55,
+    "ip_median_sasa": 24.26,
+    "ip_min_sasa": 2.36,
+    "ip_max_sasa": 49.19,
+    "total_pockets": 38,
+    "best_pocket_num": 2,
+    "pocket_residue_overlap": 1,
+    "pocket_overlap_fraction": 0.167,
+    "pocket_n_lining_residues": 10,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": 65.82,
+    "pocket_median_sasa": 48.33,
+    "basic_5A": 2,
+    "basic_8A": 4,
+    "basic_5A_list": [
+      "LYS634",
+      "LYS376"
+    ],
+    "net_charge_8A": 3,
+    "pocket_depth": 67.98,
+    "burial_fraction": 0.79,
+    "composite_score": 0.6726,
+    "score_depth": 1.0,
+    "score_sasa": 0.843,
+    "score_charge": 0.2,
+    "score_basic": 0.25
+  },
+  {
+    "name": "HDAC1_crystal",
+    "category": "positive",
+    "pdb": "5ICN",
+    "description": "HDAC1 deacetylase (buried IP4)",
+    "ip_type": "IP4",
+    "n_atoms": 4313,
+    "n_residues": 541,
+    "total_sasa": 22518.88,
+    "ip_residue_sasa": [
+      {
+        "resnum": 270,
+        "resname": "SER",
+        "sasa": 68.5
+      },
+      {
+        "resnum": 271,
+        "resname": "ALA",
+        "sasa": 41.21
+      }
+    ],
+    "ip_mean_sasa": 54.86,
+    "ip_median_sasa": 54.86,
+    "ip_min_sasa": 41.21,
+    "ip_max_sasa": 68.5,
+    "total_pockets": 26,
+    "best_pocket_num": 22,
+    "pocket_residue_overlap": 4,
+    "pocket_overlap_fraction": 0.8,
+    "pocket_n_lining_residues": 12,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": 40.86,
+    "pocket_median_sasa": 37.8,
+    "basic_5A": 2,
+    "basic_8A": 5,
+    "basic_5A_list": [
+      "LYS31",
+      "HIS28"
+    ],
+    "net_charge_8A": 4.5,
+    "pocket_depth": 26.51,
+    "burial_fraction": 0.613,
+    "composite_score": 0.5846,
+    "score_depth": 0.8837,
+    "score_sasa": 0.6343,
+    "score_charge": 0.3,
+    "score_basic": 0.25
+  },
+  {
+    "name": "HDAC3_crystal",
+    "category": "positive",
+    "pdb": "4A69",
+    "description": "HDAC3 deacetylase (buried IP4)",
+    "ip_type": "IP4",
+    "n_atoms": 7095,
+    "n_residues": 875,
+    "total_sasa": 33652.94,
+    "ip_residue_sasa": [
+      {
+        "resnum": 29,
+        "resname": "LEU",
+        "sasa": 2.9
+      },
+      {
+        "resnum": 31,
+        "resname": "LEU",
+        "sasa": 0.93
+      },
+      {
+        "resnum": 36,
+        "resname": "VAL",
+        "sasa": 0.12
+      },
+      {
+        "resnum": 265,
+        "resname": "ARG",
+        "sasa": 80.61
+      },
+      {
+        "resnum": 266,
+        "resname": "LEU",
+        "sasa": 34.8
+      }
+    ],
+    "ip_mean_sasa": 23.87,
+    "ip_median_sasa": 2.9,
+    "ip_min_sasa": 0.12,
+    "ip_max_sasa": 80.61,
+    "total_pockets": 44,
+    "best_pocket_num": 1,
+    "pocket_residue_overlap": 2,
+    "pocket_overlap_fraction": 0.4,
+    "pocket_n_lining_residues": 122,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": 41.28,
+    "pocket_median_sasa": 28.25,
+    "basic_5A": 0,
+    "basic_8A": 2,
+    "basic_5A_list": [],
+    "net_charge_8A": -2,
+    "pocket_depth": 46.86,
+    "burial_fraction": 0.882,
+    "composite_score": 0.5943,
+    "score_depth": 1.0,
+    "score_sasa": 0.8409,
+    "score_charge": 0.0,
+    "score_basic": 0.0
+  },
+  {
+    "name": "Pds5B_crystal",
+    "category": "positive",
+    "pdb": "5HDT",
+    "description": "Pds5B cohesin regulator (buried IP6)",
+    "ip_type": "IP6",
+    "n_atoms": 34162,
+    "n_residues": 2095,
+    "total_sasa": 102067.02,
+    "ip_residue_sasa": [
+      {
+        "resnum": 1059,
+        "resname": "ALA",
+        "sasa": 65.94
+      },
+      {
+        "resnum": 1060,
+        "resname": "LYS",
+        "sasa": 153.57
+      },
+      {
+        "resnum": 1086,
+        "resname": "GLU",
+        "sasa": 143.82
+      }
+    ],
+    "ip_mean_sasa": 121.11,
+    "ip_median_sasa": 143.82,
+    "ip_min_sasa": 65.94,
+    "ip_max_sasa": 153.57,
+    "total_pockets": 215,
+    "best_pocket_num": 21,
+    "pocket_residue_overlap": 1,
+    "pocket_overlap_fraction": 0.2,
+    "pocket_n_lining_residues": 7,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": 89.05,
+    "pocket_median_sasa": 88.17,
+    "basic_5A": 2,
+    "basic_8A": 3,
+    "basic_5A_list": [
+      "LYS1042",
+      "LYS1089"
+    ],
+    "net_charge_8A": 0,
+    "pocket_depth": 35.75,
+    "burial_fraction": 0.394,
+    "composite_score": 0.4049,
+    "score_depth": 1.0,
+    "score_sasa": 0.1926,
+    "score_charge": 0.0,
+    "score_basic": 0.25
+  },
+  {
+    "name": "PLCd1_PH",
+    "category": "negative",
+    "pdb": "1MAI",
+    "description": "PLC\u03b41 PH domain (surface IP3)",
+    "ip_type": "IP3",
+    "n_atoms": 984,
+    "n_residues": 119,
+    "total_sasa": 6745.52,
+    "ip_residue_sasa": [
+      {
+        "resnum": 30,
+        "resname": "LYS",
+        "sasa": 30.01
+      },
+      {
+        "resnum": 32,
+        "resname": "LYS",
+        "sasa": 101.66
+      },
+      {
+        "resnum": 36,
+        "resname": "TRP",
+        "sasa": 63.04
+      },
+      {
+        "resnum": 40,
+        "resname": "ARG",
+        "sasa": 20.59
+      },
+      {
+        "resnum": 51,
+        "resname": "ILE",
+        "sasa": 0.34
+      },
+      {
+        "resnum": 55,
+        "resname": "SER",
+        "sasa": 11.98
+      }
+    ],
+    "ip_mean_sasa": 37.94,
+    "ip_median_sasa": 25.3,
+    "ip_min_sasa": 0.34,
+    "ip_max_sasa": 101.66,
+    "total_pockets": 4,
+    "best_pocket_num": 2,
+    "pocket_residue_overlap": 5,
+    "pocket_overlap_fraction": 0.833,
+    "pocket_n_lining_residues": 16,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": 63.61,
+    "pocket_median_sasa": 49.6,
+    "basic_5A": 2,
+    "basic_8A": 5,
+    "basic_5A_list": [
+      "LYS30",
+      "LYS57"
+    ],
+    "net_charge_8A": 4,
+    "pocket_depth": 14.3,
+    "burial_fraction": 0.575,
+    "composite_score": 0.4953,
+    "score_depth": 0.4767,
+    "score_sasa": 0.7471,
+    "score_charge": 0.2667,
+    "score_basic": 0.25
+  },
+  {
+    "name": "Btk_PH",
+    "category": "negative",
+    "pdb": "1BTK",
+    "description": "Btk PH domain (surface IP4)",
+    "ip_type": "IP4",
+    "n_atoms": 2672,
+    "n_residues": 329,
+    "total_sasa": 17798.68,
+    "ip_residue_sasa": [
+      {
+        "resnum": 12,
+        "resname": "LYS",
+        "sasa": 21.89
+      },
+      {
+        "resnum": 28,
+        "resname": "CYS",
+        "sasa": 0.06
+      },
+      {
+        "resnum": 29,
+        "resname": "LEU",
+        "sasa": 1.89
+      },
+      {
+        "resnum": 33,
+        "resname": "THR",
+        "sasa": 21.56
+      }
+    ],
+    "ip_mean_sasa": 11.35,
+    "ip_median_sasa": 11.72,
+    "ip_min_sasa": 0.06,
+    "ip_max_sasa": 21.89,
+    "total_pockets": 19,
+    "best_pocket_num": 0,
+    "pocket_residue_overlap": 0,
+    "pocket_overlap_fraction": 0.0,
+    "pocket_n_lining_residues": 0,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": null,
+    "pocket_median_sasa": null,
+    "basic_5A": 0,
+    "basic_8A": 3,
+    "basic_5A_list": [],
+    "net_charge_8A": 0.5,
+    "pocket_depth": 9.75,
+    "burial_fraction": 0.237,
+    "composite_score": 0.4277,
+    "score_depth": 0.3251,
+    "score_sasa": 0.9243,
+    "score_charge": 0.0333,
+    "score_basic": 0.0
+  },
+  {
+    "name": "DAPP1_PH",
+    "category": "negative",
+    "pdb": "1FAO",
+    "description": "DAPP1 PH domain (surface IP4)",
+    "ip_type": "IP4",
+    "n_atoms": 838,
+    "n_residues": 100,
+    "total_sasa": 6161.8,
+    "ip_residue_sasa": [],
+    "ip_mean_sasa": null,
+    "ip_median_sasa": null,
+    "ip_min_sasa": null,
+    "ip_max_sasa": null,
+    "total_pockets": 4,
+    "best_pocket_num": 0,
+    "pocket_residue_overlap": 0,
+    "pocket_overlap_fraction": 0.0,
+    "pocket_n_lining_residues": 0,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": null,
+    "pocket_median_sasa": null,
+    "basic_5A": 0,
+    "basic_8A": 0,
+    "basic_5A_list": [],
+    "net_charge_8A": 0,
+    "pocket_depth": 0,
+    "burial_fraction": -0.459,
+    "composite_score": 0.2917,
+    "score_depth": 0.0,
+    "score_sasa": 0.8333,
+    "score_charge": 0.0,
+    "score_basic": 0.0
+  },
+  {
+    "name": "Grp1_PH",
+    "category": "negative",
+    "pdb": "1FGY",
+    "description": "Grp1 PH domain (surface IP4)",
+    "ip_type": "IP4",
+    "n_atoms": 1042,
+    "n_residues": 125,
+    "total_sasa": 7688.94,
+    "ip_residue_sasa": [
+      {
+        "resnum": 267,
+        "resname": "ARG",
+        "sasa": 74.53
+      },
+      {
+        "resnum": 271,
+        "resname": "LEU",
+        "sasa": 1.73
+      },
+      {
+        "resnum": 273,
+        "resname": "LYS",
+        "sasa": 16.32
+      },
+      {
+        "resnum": 276,
+        "resname": "GLY",
+        "sasa": 17.03
+      },
+      {
+        "resnum": 280,
+        "resname": "THR",
+        "sasa": 63.72
+      },
+      {
+        "resnum": 303,
+        "resname": "GLU",
+        "sasa": 135.31
+      }
+    ],
+    "ip_mean_sasa": 51.44,
+    "ip_median_sasa": 40.38,
+    "ip_min_sasa": 1.73,
+    "ip_max_sasa": 135.31,
+    "total_pockets": 9,
+    "best_pocket_num": 2,
+    "pocket_residue_overlap": 3,
+    "pocket_overlap_fraction": 0.5,
+    "pocket_n_lining_residues": 19,
+    "fpocket_score": null,
+    "fpocket_druggability": null,
+    "fpocket_volume": null,
+    "fpocket_mean_local_hyd_density": null,
+    "fpocket_polarity_score": null,
+    "fpocket_charge_score": null,
+    "fpocket_alpha_sphere_density": null,
+    "fpocket_mean_buriedness": null,
+    "pocket_mean_sasa": 45.81,
+    "pocket_median_sasa": 33.09,
+    "basic_5A": 3,
+    "basic_8A": 7,
+    "basic_5A_list": [
+      "LYS343",
+      "LYS273",
+      "HIS355"
+    ],
+    "net_charge_8A": 4.5,
+    "pocket_depth": 13.54,
+    "burial_fraction": 0.555,
+    "composite_score": 0.4816,
+    "score_depth": 0.4513,
+    "score_sasa": 0.6571,
+    "score_charge": 0.3,
+    "score_basic": 0.375
+  }
+]
