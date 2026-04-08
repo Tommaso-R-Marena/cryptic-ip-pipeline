@@ -1,0 +1,691 @@
+{
+  "bootstrap_depth": {
+    "observed_diff": 10.2021,
+    "bootstrap_mean": 10.2142,
+    "bootstrap_se": 5.936,
+    "ci_lower": 1.8781,
+    "ci_upper": 23.6462,
+    "ci_level": 0.95,
+    "n_bootstrap": 10000
+  },
+  "permutation_depth": {
+    "observed_diff": 10.2021,
+    "p_value": 0.094891,
+    "n_permutations": 10000,
+    "count_extreme": 948,
+    "significant_0.05": false,
+    "significant_0.01": false
+  },
+  "bootstrap_score": {
+    "observed_diff": -0.0023,
+    "bootstrap_mean": -0.0024,
+    "bootstrap_se": 0.0764,
+    "ci_lower": -0.1441,
+    "ci_upper": 0.1516,
+    "ci_level": 0.95,
+    "n_bootstrap": 10000
+  },
+  "permutation_score": {
+    "observed_diff": -0.0023,
+    "p_value": 0.981002,
+    "n_permutations": 10000,
+    "count_extreme": 9810,
+    "significant_0.05": false,
+    "significant_0.01": false
+  },
+  "bootstrap_apbs": {
+    "observed_diff": 2.3175,
+    "bootstrap_mean": 2.3246,
+    "bootstrap_se": 17.001,
+    "ci_lower": -28.9525,
+    "ci_upper": 37.0179,
+    "ci_level": 0.95,
+    "n_bootstrap": 10000
+  },
+  "permutation_apbs": {
+    "observed_diff": 2.3175,
+    "p_value": 0.915408,
+    "n_permutations": 10000,
+    "count_extreme": 9154,
+    "significant_0.05": false,
+    "significant_0.01": false
+  },
+  "weight_sensitivity": {
+    "n_trials": 5000,
+    "fraction_separated": 0.0,
+    "mean_separation": -0.4106,
+    "median_separation": -0.3972,
+    "separation_95ci": [
+      -0.7447,
+      -0.1408
+    ]
+  },
+  "roc_auc": {
+    "pocket_depth": {
+      "metric": "pocket_depth",
+      "auc": 0.9,
+      "n_positive": 5,
+      "n_negative": 4,
+      "tpr": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.6,
+        0.8,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fpr": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.25,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    "composite_score": {
+      "metric": "composite_score",
+      "auc": 0.5,
+      "n_positive": 5,
+      "n_negative": 4,
+      "tpr": [
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.4,
+        0.6,
+        0.6,
+        0.8,
+        1.0,
+        1.0
+      ],
+      "fpr": [
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.5,
+        0.5,
+        0.75,
+        0.75,
+        0.75,
+        1.0
+      ]
+    },
+    "apbs_potential_kTe": {
+      "metric": "apbs_potential_kTe",
+      "auc": 0.4,
+      "n_positive": 5,
+      "n_negative": 4,
+      "tpr": [
+        0.0,
+        0.2,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "fpr": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "pocket_volume": {
+      "metric": "pocket_volume",
+      "auc": 0.7,
+      "n_positive": 5,
+      "n_negative": 4,
+      "tpr": [
+        0.0,
+        0.2,
+        0.4,
+        0.4,
+        0.4,
+        0.6,
+        0.8,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fpr": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    "basic_8A": {
+      "metric": "basic_8A",
+      "auc": 0.55,
+      "n_positive": 5,
+      "n_negative": 4,
+      "tpr": [
+        0.0,
+        0.2,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.6,
+        0.8,
+        1.0,
+        1.0
+      ],
+      "fpr": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        1.0
+      ]
+    },
+    "net_charge_8A": {
+      "metric": "net_charge_8A",
+      "auc": 0.55,
+      "n_positive": 5,
+      "n_negative": 4,
+      "tpr": [
+        0.0,
+        0.2,
+        0.2,
+        0.4,
+        0.4,
+        0.6,
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "fpr": [
+        0.0,
+        0.0,
+        0.25,
+        0.25,
+        0.5,
+        0.5,
+        0.5,
+        0.75,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "bfactor": {
+    "ADAR2_crystal": {
+      "global_mean_bfactor": 16.94,
+      "global_median_bfactor": 15.59,
+      "global_std_bfactor": 5.3,
+      "n_residues": 378,
+      "pocket_mean_bfactor": 14.61,
+      "pocket_median_bfactor": 13.46,
+      "pocket_n_residues": 27,
+      "pocket_bfactor_zscore": -0.441,
+      "pocket_less_flexible": "True",
+      "ip_mean_bfactor": 13.72,
+      "ip_residue_bfactors": {
+        "376": 14.82,
+        "519": 9.97,
+        "522": 10.23,
+        "651": 20.28,
+        "672": 13.66,
+        "687": 13.39
+      }
+    },
+    "ADAR2_alphafold": {
+      "global_mean_bfactor": 76.5,
+      "global_median_bfactor": 91.38,
+      "global_std_bfactor": 25.51,
+      "n_residues": 741,
+      "pocket_mean_bfactor": 97.61,
+      "pocket_median_bfactor": 98.34,
+      "pocket_n_residues": 6,
+      "pocket_bfactor_zscore": 0.828,
+      "pocket_less_flexible": "False",
+      "ip_mean_bfactor": 96.12,
+      "ip_residue_bfactors": {
+        "376": 95.38,
+        "519": 93.81,
+        "522": 95.44,
+        "651": 98.5,
+        "672": 98.56,
+        "687": 95.0
+      }
+    },
+    "HDAC1": {
+      "global_mean_bfactor": 34.78,
+      "global_median_bfactor": 30.29,
+      "global_std_bfactor": 16.58,
+      "n_residues": 168,
+      "pocket_mean_bfactor": 23.48,
+      "pocket_median_bfactor": 21.64,
+      "pocket_n_residues": 9,
+      "pocket_bfactor_zscore": -0.681,
+      "pocket_less_flexible": "True"
+    },
+    "HDAC3": {
+      "global_mean_bfactor": 23.82,
+      "global_median_bfactor": 22.2,
+      "global_std_bfactor": 6.4,
+      "n_residues": 369,
+      "pocket_mean_bfactor": 22.56,
+      "pocket_median_bfactor": 21.08,
+      "pocket_n_residues": 97,
+      "pocket_bfactor_zscore": -0.197,
+      "pocket_less_flexible": "True"
+    },
+    "Pds5B": {
+      "global_mean_bfactor": 37.78,
+      "global_median_bfactor": 30.49,
+      "global_std_bfactor": 22.49,
+      "n_residues": 1051,
+      "pocket_mean_bfactor": 29.89,
+      "pocket_median_bfactor": 26.45,
+      "pocket_n_residues": 17,
+      "pocket_bfactor_zscore": -0.351,
+      "pocket_less_flexible": "True"
+    },
+    "PLCd1_PH": {
+      "global_mean_bfactor": 23.7,
+      "global_median_bfactor": 21.32,
+      "global_std_bfactor": 10.9,
+      "n_residues": 119,
+      "pocket_mean_bfactor": 19.28,
+      "pocket_median_bfactor": 18.41,
+      "pocket_n_residues": 16,
+      "pocket_bfactor_zscore": -0.406,
+      "pocket_less_flexible": "True"
+    },
+    "Btk_PH": {
+      "global_mean_bfactor": 18.65,
+      "global_median_bfactor": 16.4,
+      "global_std_bfactor": 9.55,
+      "n_residues": 160,
+      "pocket_mean_bfactor": 16.68,
+      "pocket_median_bfactor": 15.49,
+      "pocket_n_residues": 12,
+      "pocket_bfactor_zscore": -0.207,
+      "pocket_less_flexible": "True"
+    },
+    "DAPP1_PH": {
+      "global_mean_bfactor": 13.89,
+      "global_median_bfactor": 13.16,
+      "global_std_bfactor": 4.7,
+      "n_residues": 100,
+      "pocket_mean_bfactor": 13.69,
+      "pocket_median_bfactor": 12.01,
+      "pocket_n_residues": 9,
+      "pocket_bfactor_zscore": -0.043,
+      "pocket_less_flexible": "True"
+    },
+    "Grp1_PH": {
+      "global_mean_bfactor": 15.86,
+      "global_median_bfactor": 13.91,
+      "global_std_bfactor": 8.1,
+      "n_residues": 125,
+      "pocket_mean_bfactor": 14.71,
+      "pocket_median_bfactor": 13.02,
+      "pocket_n_residues": 19,
+      "pocket_bfactor_zscore": -0.141,
+      "pocket_less_flexible": "True"
+    }
+  },
+  "hbond": {
+    "ADAR2_crystal": {
+      "sidechain_donors": 14,
+      "sidechain_acceptors": 5,
+      "backbone_donors": 2,
+      "backbone_acceptors": 1,
+      "total_donors": 16,
+      "total_acceptors": 6,
+      "donor_to_acceptor_ratio": 2.667,
+      "donor_residues": [
+        "ARG400",
+        "LYS629",
+        "LYS662",
+        "ARG522",
+        "TRP523",
+        "LYS672",
+        "TYR668",
+        "LYS690",
+        "ARG401",
+        "SER531",
+        "TRP687",
+        "LYS519"
+      ],
+      "acceptor_residues": [
+        "TYR668",
+        "GLU689",
+        "ASP695",
+        "SER531"
+      ],
+      "radius": 8.0
+    },
+    "ADAR2_alphafold": {
+      "sidechain_donors": 12,
+      "sidechain_acceptors": 3,
+      "backbone_donors": 9,
+      "backbone_acceptors": 9,
+      "total_donors": 21,
+      "total_acceptors": 12,
+      "donor_to_acceptor_ratio": 1.75,
+      "donor_residues": [
+        "TRP563",
+        "ARG400",
+        "LYS559",
+        "CYS556",
+        "CYS377",
+        "ASN391",
+        "ARG401",
+        "LYS523"
+      ],
+      "acceptor_residues": [
+        "ASN391",
+        "ASP392"
+      ],
+      "radius": 8.0
+    },
+    "HDAC1": {
+      "sidechain_donors": 0,
+      "sidechain_acceptors": 3,
+      "backbone_donors": 4,
+      "backbone_acceptors": 4,
+      "total_donors": 4,
+      "total_acceptors": 7,
+      "donor_to_acceptor_ratio": 0.571,
+      "donor_residues": [],
+      "acceptor_residues": [
+        "ASP256",
+        "ASP248"
+      ],
+      "radius": 8.0
+    },
+    "HDAC3": {
+      "sidechain_donors": 1,
+      "sidechain_acceptors": 0,
+      "backbone_donors": 4,
+      "backbone_acceptors": 6,
+      "total_donors": 5,
+      "total_acceptors": 6,
+      "donor_to_acceptor_ratio": 0.833,
+      "donor_residues": [
+        "CYS263"
+      ],
+      "acceptor_residues": [],
+      "radius": 8.0
+    },
+    "Pds5B": {
+      "sidechain_donors": 0,
+      "sidechain_acceptors": 0,
+      "backbone_donors": 0,
+      "backbone_acceptors": 0,
+      "total_donors": 0,
+      "total_acceptors": 0,
+      "donor_to_acceptor_ratio": 0.0,
+      "donor_residues": [],
+      "acceptor_residues": [],
+      "radius": 8.0
+    },
+    "PLCd1_PH": {
+      "sidechain_donors": 9,
+      "sidechain_acceptors": 3,
+      "backbone_donors": 4,
+      "backbone_acceptors": 4,
+      "total_donors": 13,
+      "total_acceptors": 7,
+      "donor_to_acceptor_ratio": 1.857,
+      "donor_residues": [
+        "ARG40",
+        "SER55",
+        "LYS30",
+        "TYR42",
+        "LYS57",
+        "LYS32",
+        "GLN53"
+      ],
+      "acceptor_residues": [
+        "GLN53",
+        "TYR42",
+        "SER55"
+      ],
+      "radius": 8.0
+    },
+    "Btk_PH": {
+      "sidechain_donors": 0,
+      "sidechain_acceptors": 0,
+      "backbone_donors": 0,
+      "backbone_acceptors": 0,
+      "total_donors": 0,
+      "total_acceptors": 0,
+      "donor_to_acceptor_ratio": 0.0,
+      "donor_residues": [],
+      "acceptor_residues": [],
+      "radius": 8.0
+    },
+    "DAPP1_PH": {
+      "sidechain_donors": 6,
+      "sidechain_acceptors": 4,
+      "backbone_donors": 10,
+      "backbone_acceptors": 11,
+      "total_donors": 16,
+      "total_acceptors": 15,
+      "donor_to_acceptor_ratio": 1.067,
+      "donor_residues": [
+        "THR183",
+        "THR172",
+        "CYS240",
+        "ARG224",
+        "LYS242",
+        "TRP250"
+      ],
+      "acceptor_residues": [
+        "GLU246",
+        "THR183",
+        "THR172"
+      ],
+      "radius": 8.0
+    },
+    "Grp1_PH": {
+      "sidechain_donors": 11,
+      "sidechain_acceptors": 7,
+      "backbone_donors": 9,
+      "backbone_acceptors": 9,
+      "total_donors": 20,
+      "total_acceptors": 16,
+      "donor_to_acceptor_ratio": 1.25,
+      "donor_residues": [
+        "LYS273",
+        "THR280",
+        "TYR358",
+        "ARG284",
+        "TYR295",
+        "ARG305",
+        "HIS355",
+        "ASN354",
+        "LYS343"
+      ],
+      "acceptor_residues": [
+        "THR280",
+        "TYR358",
+        "TYR295",
+        "GLU345",
+        "HIS355"
+      ],
+      "radius": 8.0
+    }
+  },
+  "hydrophobicity": {
+    "ADAR2_crystal": {
+      "mean_hydropathy": -1.452,
+      "median_hydropathy": -3.5,
+      "std_hydropathy": 3.044,
+      "n_residues": 27,
+      "n_hydrophilic": 16,
+      "n_hydrophobic": 7,
+      "fraction_hydrophilic": 0.593,
+      "fraction_hydrophobic": 0.259,
+      "is_hydrophilic_pocket": true
+    },
+    "ADAR2_alphafold": {
+      "mean_hydropathy": -0.967,
+      "median_hydropathy": -2.55,
+      "std_hydropathy": 3.75,
+      "n_residues": 6,
+      "n_hydrophilic": 4,
+      "n_hydrophobic": 2,
+      "fraction_hydrophilic": 0.667,
+      "fraction_hydrophobic": 0.333,
+      "is_hydrophilic_pocket": true
+    },
+    "HDAC1": {
+      "mean_hydropathy": -0.144,
+      "median_hydropathy": -0.7,
+      "std_hydropathy": 3.311,
+      "n_residues": 9,
+      "n_hydrophilic": 4,
+      "n_hydrophobic": 4,
+      "fraction_hydrophilic": 0.444,
+      "fraction_hydrophobic": 0.444,
+      "is_hydrophilic_pocket": true
+    },
+    "HDAC3": {
+      "mean_hydropathy": -1.132,
+      "median_hydropathy": -1.6,
+      "std_hydropathy": 2.741,
+      "n_residues": 97,
+      "n_hydrophilic": 58,
+      "n_hydrophobic": 24,
+      "fraction_hydrophilic": 0.598,
+      "fraction_hydrophobic": 0.247,
+      "is_hydrophilic_pocket": true
+    },
+    "Pds5B": {
+      "mean_hydropathy": -0.388,
+      "median_hydropathy": -0.7,
+      "std_hydropathy": 3.383,
+      "n_residues": 17,
+      "n_hydrophilic": 8,
+      "n_hydrophobic": 8,
+      "fraction_hydrophilic": 0.471,
+      "fraction_hydrophobic": 0.471,
+      "is_hydrophilic_pocket": true
+    },
+    "PLCd1_PH": {
+      "mean_hydropathy": -2.3,
+      "median_hydropathy": -3.5,
+      "std_hydropathy": 2.545,
+      "n_residues": 16,
+      "n_hydrophilic": 10,
+      "n_hydrophobic": 2,
+      "fraction_hydrophilic": 0.625,
+      "fraction_hydrophobic": 0.125,
+      "is_hydrophilic_pocket": true
+    },
+    "Btk_PH": {
+      "mean_hydropathy": 1.142,
+      "median_hydropathy": 2.8,
+      "std_hydropathy": 3.306,
+      "n_residues": 12,
+      "n_hydrophilic": 4,
+      "n_hydrophobic": 8,
+      "fraction_hydrophilic": 0.333,
+      "fraction_hydrophobic": 0.667,
+      "is_hydrophilic_pocket": false
+    },
+    "DAPP1_PH": {
+      "mean_hydropathy": -0.722,
+      "median_hydropathy": -0.7,
+      "std_hydropathy": 2.781,
+      "n_residues": 9,
+      "n_hydrophilic": 4,
+      "n_hydrophobic": 3,
+      "fraction_hydrophilic": 0.444,
+      "fraction_hydrophobic": 0.333,
+      "is_hydrophilic_pocket": true
+    },
+    "Grp1_PH": {
+      "mean_hydropathy": -1.689,
+      "median_hydropathy": -1.3,
+      "std_hydropathy": 2.501,
+      "n_residues": 19,
+      "n_hydrophilic": 11,
+      "n_hydrophobic": 3,
+      "fraction_hydrophilic": 0.579,
+      "fraction_hydrophobic": 0.158,
+      "is_hydrophilic_pocket": true
+    }
+  },
+  "motif_ADAR2_crystal": {
+    "binding_motif_residues": {
+      "376": "LYS",
+      "519": "LYS",
+      "522": "ARG",
+      "651": "LYS",
+      "672": "LYS",
+      "687": "TRP"
+    },
+    "n_positions": 6,
+    "composition": {
+      "basic": 5,
+      "acidic": 0,
+      "aromatic": 1,
+      "polar": 0,
+      "hydrophobic": 0
+    },
+    "fraction_basic": 0.833,
+    "fraction_aromatic": 0.167,
+    "motif_signature": "5B-1A-0P"
+  },
+  "motif_ADAR2_alphafold": {
+    "binding_motif_residues": {
+      "376": "LYS",
+      "519": "GLN",
+      "522": "THR",
+      "651": "VAL",
+      "672": "LEU",
+      "687": "LEU"
+    },
+    "n_positions": 6,
+    "composition": {
+      "basic": 1,
+      "acidic": 0,
+      "aromatic": 0,
+      "polar": 2,
+      "hydrophobic": 3
+    },
+    "fraction_basic": 0.167,
+    "fraction_aromatic": 0.0,
+    "motif_signature": "1B-0A-2P"
+  }
+}
