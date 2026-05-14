@@ -22,6 +22,40 @@ def test_roc_auc_random():
     assert 0.0 <= auc <= 1.0
 
 
+def test_roc_auc_all_ties_is_half():
+    # All scores identical: every pos-neg pair is a tie -> AUC = 0.5
+    assert roc_auc([0.5, 0.5], [1, 0]) == 0.5
+    assert roc_auc([0.5] * 6, [1, 1, 1, 0, 0, 0]) == 0.5
+
+
+def test_roc_auc_reversed_is_zero():
+    # Perfectly anti-correlated -> AUC = 0.0
+    assert roc_auc([0.1, 0.2, 0.3, 0.7, 0.8, 0.9], [1, 1, 1, 0, 0, 0]) == 0.0
+
+
+def test_roc_auc_input_order_invariance():
+    # AUC must not depend on input ordering (regression: prior impl was order-sensitive
+    # for ties, inflating AUC to 1.0 when positives happened to precede negatives).
+    a = roc_auc([0.5, 0.5, 0.5, 0.5], [1, 1, 0, 0])
+    b = roc_auc([0.5, 0.5, 0.5, 0.5], [0, 0, 1, 1])
+    assert a == b == 0.5
+
+
+def test_roc_auc_mixed_ties():
+    # Three scores, ties between one pos and one neg. Mann-Whitney expected value:
+    # pos at 0.9, pos and neg both at 0.5, neg at 0.1.
+    # Pos-neg comparisons: (0.9>0.5)=1, (0.9>0.1)=1, (0.5==0.5)=0.5, (0.5>0.1)=1
+    # AUC = 3.5 / 4 = 0.875
+    auc = roc_auc([0.9, 0.5, 0.5, 0.1], [1, 1, 0, 0])
+    assert abs(auc - 0.875) < 1e-9
+
+
+def test_roc_auc_single_class_returns_nan():
+    import math
+    assert math.isnan(roc_auc([0.1, 0.2, 0.3], [1, 1, 1]))
+    assert math.isnan(roc_auc([0.1, 0.2, 0.3], [0, 0, 0]))
+
+
 def test_weight_sensitivity_runs():
     rows = [
         {"label": 1, "depth": 0.8, "inv_sasa": 0.9, "elec": 0.6, "basic": 0.7, "volume_fit": 0.8, "plddt_penalty": 0.0},

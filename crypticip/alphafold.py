@@ -51,24 +51,46 @@ def download_alphafold_pdb(accession: str, out_dir: Path, *, force: bool = False
 def stream_download(url: str, dest: Path, *, resume: bool = True,
                     chunk: int = 1 << 20, timeout: float = 300.0,
                     progress: bool = True) -> DownloadResult:
-    """Streamed download with optional HTTP Range resume."""
+    """Streamed download with optional HTTP Range resume.
+
+    If a Range request is issued but the server responds with 200 OK (full
+    payload) instead of 206 Partial Content, the existing partial file is
+    discarded and the download restarts cleanly to avoid corruption.
+    """
     dest.parent.mkdir(parents=True, exist_ok=True)
-    headers = {}
+    headers: dict[str, str] = {}
     mode = "wb"
     existing = 0
+    ranged = False
     if resume and dest.exists():
         existing = dest.stat().st_size
         if existing > 0:
             headers["Range"] = f"bytes={existing}-"
             mode = "ab"
+            ranged = True
     try:
         with requests.get(url, stream=True, timeout=timeout, headers=headers) as r:
             if r.status_code == 416:
                 return DownloadResult(dest, ok=True, bytes=existing, skipped=True)
             r.raise_for_status()
-            total = int(r.headers.get("Content-Length", "0"))
+            done = existing
+            if ranged:
+                if r.status_code == 206:
+                    # Sanity-check Content-Range start matches our offset, if present.
+                    cr = r.headers.get("Content-Range", "")
+                    if cr:
+                        m = re.match(r"bytes\s+(\d+)-", cr)
+                        if m and int(m.group(1)) != existing:
+                            # Server resumed from a different offset; restart cleanly.
+                            mode = "wb"
+                            done = 0
+                else:
+                    # Server ignored Range and is returning the full payload (or other
+                    # non-206 success). Discard partial file and restart cleanly so we
+                    # don't append the full body onto our existing prefix.
+                    mode = "wb"
+                    done = 0
             with dest.open(mode) as fh:
-                done = existing
                 last = time.monotonic()
                 for buf in r.iter_content(chunk_size=chunk):
                     if not buf:

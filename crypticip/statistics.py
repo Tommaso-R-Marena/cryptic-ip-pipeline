@@ -52,22 +52,32 @@ def _phi(x: float) -> float:
 
 
 def roc_auc(scores: Sequence[float], labels: Sequence[int]) -> float:
-    """Compute ROC AUC. labels are 1=positive, 0=negative."""
-    pairs = sorted(zip(scores, labels), key=lambda x: -x[0])
+    """Compute ROC AUC with proper tie handling.
+
+    Uses the Mann-Whitney U / average-ranks formulation: tied positive-negative
+    pairs each contribute 0.5. Returns NaN if either class is absent.
+    """
+    n = len(labels)
     pos = sum(labels)
-    neg = len(labels) - pos
+    neg = n - pos
     if pos == 0 or neg == 0:
         return float("nan")
-    tp = fp = 0
-    auc = 0.0
-    prev_fp = 0
-    for _, y in pairs:
-        if y:
-            tp += 1
-        else:
-            fp += 1
-            auc += tp
-    return auc / (pos * neg)
+    # Average ranks (1-indexed). Sort by score ascending; tied scores share the
+    # mean of the ranks they would have occupied.
+    order = sorted(range(n), key=lambda i: scores[i])
+    ranks = [0.0] * n
+    i = 0
+    while i < n:
+        j = i
+        while j + 1 < n and scores[order[j + 1]] == scores[order[i]]:
+            j += 1
+        avg_rank = (i + j + 2) / 2.0  # mean of (i+1)..(j+1)
+        for k in range(i, j + 1):
+            ranks[order[k]] = avg_rank
+        i = j + 1
+    rank_sum_pos = sum(r for r, y in zip(ranks, labels) if y)
+    # AUC = (R_pos - n_pos(n_pos+1)/2) / (n_pos * n_neg)
+    return (rank_sum_pos - pos * (pos + 1) / 2.0) / (pos * neg)
 
 
 @dataclass
