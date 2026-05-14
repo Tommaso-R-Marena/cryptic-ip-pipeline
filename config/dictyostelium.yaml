@@ -1,0 +1,11 @@
+organism: dictyostelium
+proteome:
+  uniprot_id: UP000002195
+  scientific_name: "Dictyostelium discoideum"
+  alphafold_tar_url: "https://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000002195_44689_DICDI_v4.tar"
+  expected_file_count_min: 12000
+  expected_file_count_max: 13000
+  taxonomy_id: 44689
+screening:
+  mode: fast
+  workers: 4

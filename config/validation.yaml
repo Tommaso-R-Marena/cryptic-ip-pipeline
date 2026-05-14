@@ -1,0 +1,65 @@
+# Phase-1 validation configuration. Inherits from default.yaml.
+
+validation_set:
+  positive_controls:
+    ADAR2_crystal:
+      pdb_id: "1ZY7"
+      uniprot: P78563
+      chain: A
+      ip_type: IP6
+      source: pdb
+      coordinating_residues: [376, 519, 522, 651, 672, 687]
+      adjacent_residues: [391, 523, 669, 689, 695]
+      notes: "Macbeth et al., Science 2005 — buried IP6 in ADAR2 core"
+    ADAR2_alphafold:
+      pdb_id: "AF-P78563-F1"
+      uniprot: P78563
+      chain: A
+      ip_type: IP6
+      source: alphafold
+      coordinating_residues: [376, 519, 522, 651, 672, 687]
+      adjacent_residues: [391, 523, 669, 689, 695]
+    Pds5B:
+      pdb_id: "5HDT"
+      chain: A
+      ip_type: IP6
+      source: pdb
+    HDAC1:
+      pdb_id: "5ICN"
+      chain: A
+      ip_type: IP4
+      source: pdb
+    HDAC3:
+      pdb_id: "4A69"
+      chain: A
+      ip_type: IP4
+      source: pdb
+
+  negative_controls:
+    PLCd1_PH:
+      pdb_id: "1MAI"
+      chain: A
+      ip_type: IP3
+      source: pdb
+    Btk_PH:
+      pdb_id: "1BTK"
+      chain: A
+      ip_type: IP4
+      source: pdb
+    DAPP1_PH:
+      pdb_id: "1FAO"
+      chain: A
+      ip_type: IP4
+      source: pdb
+    Grp1_PH:
+      pdb_id: "1FGY"
+      chain: A
+      ip_type: IP4
+      source: pdb
+
+# Validation gate — only PASS if every line is True.
+validation_gate:
+  adar2_ip6_pocket_rank_max: 3
+  positive_vs_negative_mean_separation_min: 0.05
+  positive_mean_depth_over_negative_min_A: 5.0
+  required_positives_passing_filter_count: 2

@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "cryptic-ip-pipeline: detection of cryptic inositol phosphate binding sites"
+version: 0.5.0
+authors:
+  - family-names: Marena
+    given-names: Tommaso
+    affiliation: "Department of Chemistry, The Catholic University of America"
+date-released: 2026-05-14
+license: MIT
+repository-code: "https://github.com/Tommaso-R-Marena/cryptic-ip-pipeline"
+keywords:
+  - inositol phosphate
+  - cryptic binding sites
+  - AlphaFold
+  - fpocket
+  - APBS
+  - structural bioinformatics
+references:
+  - type: article
+    authors:
+      - family-names: Macbeth
+        given-names: M. R.
+    title: "Inositol hexakisphosphate is bound in the ADAR2 core and required for RNA editing"
+    journal: Science
+    year: 2005
+    volume: 309
+    pages: "1534-1539"
+  - type: article
+    authors:
+      - family-names: Le Guilloux
+        given-names: V.
+    title: "fpocket: an open source platform for ligand pocket detection"
+    journal: BMC Bioinformatics
+    year: 2009
+  - type: article
+    authors:
+      - family-names: Mitternacht
+        given-names: S.
+    title: "FreeSASA: An open source C library for solvent accessible surface area calculations"
+    journal: F1000Research
+    year: 2016
+  - type: article
+    authors:
+      - family-names: Jurrus
+        given-names: E.
+    title: "Improvements to the APBS biomolecular solvation software suite"
+    journal: Protein Science
+    year: 2018
+  - type: article
+    authors:
+      - family-names: Varadi
+        given-names: M.
+    title: "AlphaFold Protein Structure Database"
+    journal: Nucleic Acids Research
+    year: 2024

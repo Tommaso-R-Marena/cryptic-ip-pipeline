@@ -1,0 +1,73 @@
+# Default configuration for the crypticip pipeline.
+# All other configs (validation.yaml, yeast.yaml, ...) are merged on top of this.
+
+paths:
+  data_dir: data
+  proteomes_dir: data/proteomes
+  cache_dir: data/cache
+  results_dir: results
+  reports_dir: results/reports
+  screening_dir: results/screening
+  experimental_dir: results/experimental
+
+# External tool config — paths are resolved from PATH if blank.
+tools:
+  fpocket:
+    binary: fpocket
+    args: []                  # extra args appended after `-f <pdb>`
+  freesasa:
+    use_python: true          # prefer Python freesasa over binary
+    probe_radius: 1.4
+  pdb2pqr:
+    binary: pdb2pqr
+    forcefield: AMBER
+    ph: 7.0
+  apbs:
+    binary: apbs
+    grid_padding: 10.0
+  pymol:
+    binary: pymol
+
+# Detection criteria — used by scoring.filter_flags()
+criteria:
+  depth_min_A: 15.0
+  sasa_max_A2: 5.0
+  potential_min_kT_e: 5.0
+  basic_residues_min: 4
+  basic_residues_radius_A: 5.0
+  volume_min_A3: 300.0
+  volume_max_A3: 800.0
+  plddt_min: 70.0
+
+# Scoring weights (default for screening). See config/scoring.yaml for
+# the ROC-optimised variants.
+scoring:
+  weights:
+    depth:       0.25
+    inv_sasa:    0.25
+    elec:        0.20
+    basic:       0.20
+    volume_fit:  0.10
+  norms:
+    depth_A:     30.0
+    sasa_A2:     150.0
+    elec_kT_e:   30.0
+    basic_count: 8.0
+    volume_lo:   300.0
+    volume_hi:   800.0
+  plddt_penalty:
+    enabled: true
+    threshold: 70.0
+    penalty:   0.2
+
+# Screening defaults
+screening:
+  mode: fast                  # fast | full
+  workers: 4
+  limit: null                 # process all
+  resume: true
+  per_protein_top_k: 5
+
+logging:
+  level: INFO
+  json: false

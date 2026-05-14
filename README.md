@@ -80,37 +80,64 @@ cryptic-ip-pipeline/
 └── README.md
 ```
 
-## Running the Pipeline
+## Running the Pipeline (v0.5+ — `crypticip` CLI)
 
-### Prerequisites
+The original validation scripts under `pipeline/` and the validated
+results in `results/` are kept as-is for the scientific record. The
+production pipeline is now a Python package `crypticip` with a single
+CLI of the same name.
+
+### Install
 
 ```bash
-# Install system dependencies
-apt-get install fpocket apbs
+# Conda (recommended — also installs fpocket / FreeSASA / APBS / pdb2pqr)
+conda env create -f environment.yml
+conda activate crypticip
 
-# Install Python dependencies
-pip install numpy biopython freesasa pdb2pqr matplotlib pytest
+# Pip-only (assumes binaries are installed separately)
+pip install -e .[dev]
 ```
 
-### Full Analysis
+### Quick start
+
+```bash
+crypticip --version
+crypticip check-env                     # verify external tools
+crypticip download-validation           # fetch crystal + AlphaFold structures
+crypticip validate --config config/validation.yaml
+crypticip report --validation
+
+# Proteome screening
+crypticip download-proteome --organism yeast --resume
+crypticip index-proteome --organism yeast
+crypticip screen --organism yeast --mode fast --workers 8 --resume
+crypticip report --organism yeast
+crypticip screen --organism yeast --mode full --workers 8 --resume
+crypticip pymol --organism yeast --top 50
+crypticip experimental-plan --organism yeast --top 25
+# repeat for --organism human, --organism dictyostelium, then:
+crypticip report --all
+crypticip experimental-plan --all --top 25
+```
+
+### Legacy entry point
+
+The original v3/v4 pipeline still works for re-running the published
+validation:
 
 ```bash
 python pipeline/expanded_analysis.py
 ```
 
-This runs all 9 structures through the complete pipeline and outputs:
-- `results/expanded_validation_results.json` — Full results with all metrics
-- `results/expanded_validation_summary.csv` — Summary table
-
 ### Tests
 
 ```bash
-# Run all 62 tests
-pytest tests/ -v
-
-# Run only expanded tests (50 tests)
-pytest tests/test_expanded.py -v
+python -m pytest -q              # ~ 90 tests, no external binaries required
 ```
+
+See `IMPLEMENTATION_REPORT.md` for the v0.5 refactor summary, `docs/`
+for the per-stage documentation, and `IMPLEMENTATION_PLAN.md` for the
+checkpoint structure used to build it.
 
 ## Technical Notes
 

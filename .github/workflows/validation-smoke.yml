@@ -1,0 +1,54 @@
+name: validation-smoke
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[dev]
+      - name: check-env
+        run: crypticip check-env
+      - name: Tiny in-repo smoke (no external binaries needed)
+        run: |
+          set -e
+          python - <<'PY'
+          from pathlib import Path
+          from crypticip.config import load_config
+          from crypticip.paths import ProjectPaths
+          from crypticip.screening import screen_proteome
+
+          # mini synthetic proteome
+          root = Path('smoke')
+          (root / 'data/proteomes/yeast').mkdir(parents=True, exist_ok=True)
+          src = Path('tests/fixtures/tiny.pdb').read_text()
+          for i in range(3):
+              (root / f'data/proteomes/yeast/AF-P0000{i+1}-F1-model_v4.pdb').write_text(src)
+
+          cfg_path = root / 'cfg.yaml'
+          cfg_path.write_text(
+              "paths:\n"
+              f"  data_dir: {root}/data\n"
+              f"  proteomes_dir: {root}/data/proteomes\n"
+              f"  results_dir: {root}/results\n"
+              f"  reports_dir: {root}/results/reports\n"
+              f"  screening_dir: {root}/results/screening\n"
+              f"  experimental_dir: {root}/results/experimental\n"
+          )
+          cfg = load_config(str(cfg_path))
+          paths = ProjectPaths.from_config(cfg).ensure()
+          summary = screen_proteome('yeast', cfg=cfg, paths=paths, workers=1, limit=3)
+          print('OK', summary['n_processed_this_run'], summary['n_files'])
+          PY
