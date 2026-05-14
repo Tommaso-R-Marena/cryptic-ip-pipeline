@@ -1,11 +1,14 @@
 """Lightweight checks for the Colab notebooks.
 
 These tests do NOT execute notebook cells (the heavy ones download
-proteomes). They only verify that each notebook:
+proteomes). They verify that each notebook:
 - is valid JSON,
 - is a valid nbformat notebook,
 - starts with the expected H1 heading,
-- contains the expected install + crypticip CLI calls.
+- contains the fresh-Colab bootstrap markers (REPO_URL, BRANCH,
+  PROJECT_DIR, MOUNT_DRIVE, clone + editable install, CLI verify),
+- contains the expected `crypticip` CLI calls for that notebook,
+- has no committed execution outputs.
 """
 from __future__ import annotations
 
@@ -26,36 +29,56 @@ else:
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NB_DIR = REPO_ROOT / "notebooks"
 
+# Every Colab notebook must contain these fresh-Colab bootstrap markers so
+# that opening one in a clean runtime sets REPO_URL/BRANCH/PROJECT_DIR,
+# clones + installs, verifies the CLI, and optionally mounts Drive.
+COMMON_BOOTSTRAP_MARKERS = [
+    "REPO_URL",
+    "BRANCH",
+    "PROJECT_DIR",
+    "MOUNT_DRIVE",
+    "DRIVE_RESULTS",
+    "'git', 'clone'",
+    "pip', 'install', '-q', '-e",  # editable install via subprocess
+    "crypticip --version",
+    "crypticip check-env",
+    "crypticip list-configs",
+    "Open In Colab",
+]
+
 EXPECTED = {
     "00_colab_quickstart.ipynb": {
         "h1": "00 - Cryptic IP Pipeline: Colab Quickstart",
         "must_contain": [
-            "pip install -q -e .",
-            "crypticip --version",
-            "crypticip check-env",
             "pytest",
             "index-proteome",
-            "screen",
+            "crypticip screen",
+            "crypticip report",
+            "crypticip pymol",
+            "crypticip experimental-plan",
+            "files.download",
         ],
     },
     "01_validation_colab.ipynb": {
         "h1": "01 - Validation on the Curated Control Set",
         "must_contain": [
             "download-validation",
-            "crypticip validate",
+            "crypticip validate --config config/validation.yaml",
             "report --validation",
             "condacolab",
+            "files.download",
         ],
     },
     "02_yeast_screening_colab.ipynb": {
         "h1": "02 - Yeast Proteome Screening on Colab",
         "must_contain": [
-            "download-proteome --organism yeast",
+            "download-proteome --organism yeast --resume",
             "index-proteome --organism yeast",
             "screen --organism yeast",
             "pymol --organism yeast",
             "experimental-plan --organism yeast",
             "--limit",
+            "files.download",
         ],
     },
     "03_results_analysis_colab.ipynb": {
@@ -64,6 +87,8 @@ EXPECTED = {
             "screening_results.csv",
             "score",
             "tier",
+            "RUN_SMOKE_SCREEN",
+            "files.download",
         ],
     },
     "04_experimental_prioritization_colab.ipynb": {
@@ -72,6 +97,8 @@ EXPECTED = {
             "experimental-plan",
             "mutagenesis",
             "dsf",
+            "RUN_SMOKE_SCREEN",
+            "files.download",
         ],
     },
 }
@@ -101,6 +128,15 @@ def test_notebook_starts_with_h1(name):
     assert src.startswith(f"# {spec['h1']}"), (
         f"{name}: expected H1 '# {spec['h1']}', got: {src[:80]!r}"
     )
+
+
+@pytest.mark.parametrize("name", sorted(EXPECTED))
+def test_notebook_contains_bootstrap_markers(name):
+    """Every Colab notebook must include the fresh-Colab bootstrap section."""
+    nb = nbformat.read(str(NB_DIR / name), as_version=4)
+    blob = "\n".join(c.source for c in nb.cells)
+    missing = [m for m in COMMON_BOOTSTRAP_MARKERS if m not in blob]
+    assert not missing, f"{name}: missing bootstrap markers: {missing}"
 
 
 @pytest.mark.parametrize("name", sorted(EXPECTED))
@@ -144,7 +180,8 @@ def test_notebook_02_drive_symlink_cell_is_robust():
     called `target.symlink_to(...)`, which raises FileExistsError.
     """
     cells = _nb_code_cells("02_yeast_screening_colab.ipynb")
-    matching = [c for c in cells if "DRIVE_RESULTS" in "".join(c.source)]
+    matching = [c for c in cells if "DRIVE_RESULTS" in "".join(c.source)
+                and "symlink_to" in "".join(c.source)]
     assert matching, "no Drive symlink cell found"
     src = "".join(matching[0].source)
 
@@ -204,3 +241,23 @@ def test_nbformat_declared_in_dev_dependencies():
     assert "nbformat" in m.group(1), (
         f"nbformat missing from dev deps. Got: {m.group(1)!r}"
     )
+
+
+# ---------------------------------------------------------------------------
+# Fresh-Colab bootstrap helper (notebooks/colab_bootstrap.py)
+# ---------------------------------------------------------------------------
+
+
+def test_colab_bootstrap_helper_exists_and_imports():
+    """The optional helper module must exist and import without side-effects."""
+    helper = NB_DIR / "colab_bootstrap.py"
+    assert helper.exists(), f"missing {helper}"
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("colab_bootstrap", helper)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)  # type: ignore[union-attr]
+    # Public API the notebooks rely on (if a user does `import colab_bootstrap`
+    # in Colab after cloning).
+    for fn in ("clone_or_update", "pip_install", "mount_drive",
+               "verify_cli", "try_install_external_tools", "bootstrap"):
+        assert hasattr(mod, fn), f"colab_bootstrap.{fn} missing"

@@ -141,7 +141,12 @@ checkpoint structure used to build it.
 
 ### Run on Google Colab
 
-The `notebooks/` directory contains five Colab-ready notebooks:
+The `notebooks/` directory contains five Colab-ready notebooks, each
+designed to be opened directly from GitHub in a fresh Colab session
+and run top-to-bottom. Every notebook starts with a *Run this first —
+fresh-Colab setup* section that clones the repo, `pip install -e .`s
+it, optionally mounts Drive, and verifies `crypticip --version`,
+`crypticip check-env`, and `crypticip list-configs`:
 
 | Notebook | Purpose | Open |
 |----------|---------|------|
