@@ -32,7 +32,7 @@ dependencies = [
 [project.optional-dependencies]
 freesasa = ["freesasa>=2.1"]
 electrostatics = ["pdb2pqr>=3.6"]
-dev = ["pytest>=7.0", "pytest-cov>=4.0", "ruff>=0.1"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0", "ruff>=0.1", "nbformat>=5.7"]
 
 [project.scripts]
 crypticip = "crypticip.cli:main"
