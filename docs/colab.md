@@ -7,15 +7,16 @@ workflow with honest fallback behaviour where binaries are unavailable.
 
 ## Notebooks
 
-| Order | Notebook | What it does | Time | Disk |
-|-------|----------|--------------|------|------|
-| 1 | [`00_colab_quickstart.ipynb`](../notebooks/00_colab_quickstart.ipynb) | Clone, install, `check-env`, run pytest, synthetic smoke workflow | ~5 min | < 100 MB |
-| 2 | [`01_validation_colab.ipynb`](../notebooks/01_validation_colab.ipynb) | Optional condacolab install of external binaries; `download-validation`; `validate`; ADAR2 diagnostics | ~10-15 min real / ~3 min fallback | ~50 MB |
-| 3 | [`02_yeast_screening_colab.ipynb`](../notebooks/02_yeast_screening_colab.ipynb) | Yeast AlphaFold proteome download, index, fast/full screen, PyMOL bundles, experimental plan | 30 min – several h | up to ~6 GB |
-| 4 | [`03_results_analysis_colab.ipynb`](../notebooks/03_results_analysis_colab.ipynb) | Load screening CSVs, rank, plot distributions / tiers / feature heatmap | minutes | < 10 MB |
-| 5 | [`04_experimental_prioritization_colab.ipynb`](../notebooks/04_experimental_prioritization_colab.ipynb) | Generate mutagenesis + DSF plans for top candidates | minutes | < 10 MB |
+| Order | Notebook | What it does | Time | Disk | Open |
+|-------|----------|--------------|------|------|------|
+| 1 | [`00_colab_quickstart.ipynb`](../notebooks/00_colab_quickstart.ipynb) | Clone, install, `check-env`, run pytest, synthetic smoke workflow | ~5 min | < 100 MB | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/00_colab_quickstart.ipynb) |
+| 2 | [`01_validation_colab.ipynb`](../notebooks/01_validation_colab.ipynb) | Optional condacolab install of external binaries; `download-validation`; `validate`; ADAR2 diagnostics | ~10-15 min real / ~3 min fallback | ~50 MB | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/01_validation_colab.ipynb) |
+| 3 | [`02_yeast_screening_colab.ipynb`](../notebooks/02_yeast_screening_colab.ipynb) | Yeast AlphaFold proteome download, index, fast/full screen, PyMOL bundles, experimental plan | 30 min – several h | up to ~6 GB | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/02_yeast_screening_colab.ipynb) |
+| 4 | [`03_results_analysis_colab.ipynb`](../notebooks/03_results_analysis_colab.ipynb) | Load screening CSVs, rank, plot distributions / tiers / feature heatmap | minutes | < 10 MB | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/03_results_analysis_colab.ipynb) |
+| 5 | [`04_experimental_prioritization_colab.ipynb`](../notebooks/04_experimental_prioritization_colab.ipynb) | Generate mutagenesis + DSF plans for top candidates | minutes | < 10 MB | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/04_experimental_prioritization_colab.ipynb) |
 
-Open each by clicking the **Open in Colab** badge on GitHub, or directly with:
+Badge links target the `main` branch so they remain valid after PR merge.
+Open each by clicking the **Open in Colab** badge above, or directly with:
 
 ```
 https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/00_colab_quickstart.ipynb
