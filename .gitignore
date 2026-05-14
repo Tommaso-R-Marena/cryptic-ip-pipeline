@@ -14,3 +14,23 @@ data/cleaned/
 data/fpocket_results/
 data/sasa_results/
 data/electrostatics/
+
+# Proteomes and screening output (large)
+data/proteomes/
+data/cache/
+results/screening/
+results/proteome_*/
+results/experimental/
+results/reports/
+
+# Build / packaging
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

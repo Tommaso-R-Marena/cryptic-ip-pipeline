@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  crypticip:
+    build: .
+    image: crypticip:latest
+    working_dir: /opt/crypticip
+    volumes:
+      - ./data:/opt/crypticip/data
+      - ./results:/opt/crypticip/results
+    command: ["crypticip", "check-env"]

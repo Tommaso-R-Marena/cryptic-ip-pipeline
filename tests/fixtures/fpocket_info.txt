@@ -1,0 +1,37 @@
+Pocket 1 :
+	Score : 			0.621
+	Drug Score : 			0.852
+	Number of Alpha Spheres : 	35
+	Mean alpha-sphere radius :	3.781
+	Mean alpha-sphere SASA :	0.123
+	Mean B-factor of pocket residues :   30.5
+	Hydrophobicity score:		17.5
+	Polarity score:			6
+	Amino Acid based volume score:	3.6
+	Pocket volume (Monte Carlo):	615.7
+	Real volume (mol. volume) :	612.3
+	Charge score :			3
+	Local hydrophobic density score :	23.4
+	Number of apolar alpha sphere :	18
+	Proportion of apolar alpha sphere : 0.514
+	Cent. of mass - Alpha Sphere max dist:	22.345
+	Flexibility :		0.213
+
+Pocket 2 :
+	Score : 			0.420
+	Drug Score : 			0.681
+	Number of Alpha Spheres : 	24
+	Mean alpha-sphere radius :	3.421
+	Real volume (mol. volume) :	310.5
+	Cent. of mass - Alpha Sphere max dist:	18.9
+	Charge score :			1
+	Polarity score :		2
+	Mean local hydrophobic density :	12.1
+
+Pocket 3 :
+	Score : 			0.211
+	Drug Score : 			0.301
+	Real volume (mol. volume) :	150.2
+	Cent. of mass - Alpha Sphere max dist:	8.5
+	Mean alpha-sphere radius :	3.2
+	Charge score :			0

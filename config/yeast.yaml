@@ -1,0 +1,11 @@
+organism: yeast
+proteome:
+  uniprot_id: UP000002311
+  scientific_name: "Saccharomyces cerevisiae"
+  alphafold_tar_url: "https://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000002311_559292_YEAST_v4.tar"
+  expected_file_count_min: 5800
+  expected_file_count_max: 6300
+  taxonomy_id: 559292
+screening:
+  mode: fast
+  workers: 4

@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crypticip"
+version = "0.5.0"
+description = "Detection of cryptic structural inositol phosphate (IP) binding sites in proteins"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Tommaso Marena"}]
+keywords = ["bioinformatics", "structural-biology", "inositol-phosphate",
+            "alphafold", "fpocket", "apbs", "freesasa"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "matplotlib>=3.7",
+  "biopython>=1.80",
+  "pandas>=2.0",
+  "requests>=2.28",
+  "PyYAML>=6.0",
+  "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+freesasa = ["freesasa>=2.1"]
+electrostatics = ["pdb2pqr>=3.6"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0", "ruff>=0.1"]
+
+[project.scripts]
+crypticip = "crypticip.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Tommaso-R-Marena/cryptic-ip-pipeline"
+Issues   = "https://github.com/Tommaso-R-Marena/cryptic-ip-pipeline/issues"
+
+[tool.setuptools.packages.find]
+include = ["crypticip*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "requires_external: requires fpocket/freesasa/apbs/pdb2pqr/pymol binary",
+  "slow: long-running",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"

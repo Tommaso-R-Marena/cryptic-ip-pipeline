@@ -1,0 +1,37 @@
+# Alternative scoring schemes. Selected via `--scoring <name>` in the CLI.
+
+default:
+  weights:
+    depth:      0.25
+    inv_sasa:   0.25
+    elec:       0.20
+    basic:      0.20
+    volume_fit: 0.10
+  plddt_penalty: {enabled: true, threshold: 70.0, penalty: 0.2}
+
+depth_heavy:
+  weights:
+    depth:      0.40
+    inv_sasa:   0.25
+    elec:       0.10
+    basic:      0.15
+    volume_fit: 0.10
+  plddt_penalty: {enabled: true, threshold: 70.0, penalty: 0.2}
+
+electrostatics_heavy:
+  weights:
+    depth:      0.20
+    inv_sasa:   0.20
+    elec:       0.35
+    basic:      0.15
+    volume_fit: 0.10
+  plddt_penalty: {enabled: true, threshold: 70.0, penalty: 0.2}
+
+no_apbs:
+  weights:
+    depth:      0.30
+    inv_sasa:   0.30
+    elec:       0.00
+    basic:      0.30
+    volume_fit: 0.10
+  plddt_penalty: {enabled: true, threshold: 70.0, penalty: 0.2}

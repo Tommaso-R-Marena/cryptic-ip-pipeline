@@ -1,0 +1,11 @@
+organism: human
+proteome:
+  uniprot_id: UP000005640
+  scientific_name: "Homo sapiens"
+  alphafold_tar_url: "https://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000005640_9606_HUMAN_v4.tar"
+  expected_file_count_min: 22000
+  expected_file_count_max: 24500
+  taxonomy_id: 9606
+screening:
+  mode: fast
+  workers: 8
