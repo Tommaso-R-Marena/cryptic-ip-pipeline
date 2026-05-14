@@ -10,11 +10,18 @@ proteomes). They only verify that each notebook:
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import pytest
 
-nbformat = pytest.importorskip("nbformat")
+# nbformat is a declared dev/test dependency. Allow opting out of notebook
+# validation in environments where it's intentionally unavailable, but by
+# default require it so CI fails loudly if it's missing.
+if os.environ.get("CRYPTICIP_SKIP_NOTEBOOK_TESTS") == "1":
+    nbformat = pytest.importorskip("nbformat")
+else:
+    import nbformat  # noqa: F401  (hard dependency; declared in pyproject [dev])
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 NB_DIR = REPO_ROOT / "notebooks"
@@ -117,3 +124,83 @@ def test_notebook_outputs_are_empty(name):
             assert c.get("execution_count") in (None, 0), (
                 f"{name} cell {i}: unexpected execution_count"
             )
+
+
+# ---------------------------------------------------------------------------
+# Regression tests for previously reviewed bugs (Codex review on PR #2).
+# ---------------------------------------------------------------------------
+
+
+def _nb_code_cells(name):
+    nb = nbformat.read(str(NB_DIR / name), as_version=4)
+    return [c for c in nb.cells if c.cell_type == "code"]
+
+
+def test_notebook_02_drive_symlink_cell_is_robust():
+    """The Drive symlink cell must not crash when `results/` already exists.
+
+    Regression test for Codex review: previously the cell did
+    `if target.is_symlink() or target.exists(): pass` then unconditionally
+    called `target.symlink_to(...)`, which raises FileExistsError.
+    """
+    cells = _nb_code_cells("02_yeast_screening_colab.ipynb")
+    matching = [c for c in cells if "DRIVE_RESULTS" in "".join(c.source)]
+    assert matching, "no Drive symlink cell found"
+    src = "".join(matching[0].source)
+
+    # Must handle the pre-existing-symlink case (unlink / replace).
+    assert "unlink" in src, (
+        "Drive symlink cell must unlink stale symlinks before replacing"
+    )
+    # Must back up an existing non-symlink results directory rather than
+    # destructively deleting it.
+    assert "local_backup_" in src, (
+        "Drive symlink cell must preserve existing results/ via timestamped backup"
+    )
+    # Must ensure the Drive target exists before symlinking.
+    assert "mkdir(parents=True, exist_ok=True)" in src
+    # Should NOT call symlink_to unconditionally after a noop branch.
+    assert "        pass\n    target.symlink_to" not in src, (
+        "found old buggy pattern: pass-then-symlink unconditional"
+    )
+
+
+def test_notebook_04_uses_organism_variable():
+    """The experimental-plan call must honor the configured ORGANISM variable.
+
+    Regression test for Codex review: command was hardcoded to `yeast`.
+    """
+    cells = _nb_code_cells("04_experimental_prioritization_colab.ipynb")
+    cmds = [
+        "".join(c.source) for c in cells
+        if "experimental-plan" in "".join(c.source)
+    ]
+    assert cmds, "no experimental-plan cell found"
+    # At least one cell must use {ORGANISM} substitution.
+    parametrized = [c for c in cmds if "{ORGANISM}" in c]
+    assert parametrized, (
+        "experimental-plan call must use {ORGANISM}, not hardcoded organism. "
+        f"Got: {cmds!r}"
+    )
+    # The hardcoded form `--organism yeast` should not appear in any
+    # experimental-plan invocation in this notebook.
+    for c in cmds:
+        assert "--organism yeast" not in c, (
+            f"experimental-plan still hardcodes --organism yeast: {c!r}"
+        )
+
+
+def test_nbformat_declared_in_dev_dependencies():
+    """nbformat must be listed in pyproject.toml [project.optional-dependencies] dev.
+
+    Regression test for Codex review: missing dep made notebook tests
+    silently skip in CI.
+    """
+    pyproject = (REPO_ROOT / "pyproject.toml").read_text()
+    # Find the dev = [...] line and assert nbformat appears in the value.
+    import re
+    m = re.search(r"^dev\s*=\s*\[([^\]]*)\]", pyproject, re.MULTILINE)
+    assert m, "no `dev = [...]` entry found in pyproject.toml"
+    assert "nbformat" in m.group(1), (
+        f"nbformat missing from dev deps. Got: {m.group(1)!r}"
+    )
