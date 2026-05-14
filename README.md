@@ -143,17 +143,16 @@ checkpoint structure used to build it.
 
 The `notebooks/` directory contains five Colab-ready notebooks:
 
-| Notebook | Purpose |
-|----------|---------|
-| `00_colab_quickstart.ipynb` | Clone, install, `check-env`, tests, synthetic smoke workflow |
-| `01_validation_colab.ipynb` | Run validation on the curated control set (with optional conda install of external binaries) |
-| `02_yeast_screening_colab.ipynb` | Yeast proteome download / index / screen / PyMOL / experimental plan |
-| `03_results_analysis_colab.ipynb` | Load screening CSVs and plot distributions / tiers / feature heatmap |
-| `04_experimental_prioritization_colab.ipynb` | Generate mutagenesis + DSF plans for top candidates |
+| Notebook | Purpose | Open |
+|----------|---------|------|
+| `00_colab_quickstart.ipynb` | Clone, install, `check-env`, tests, synthetic smoke workflow | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/00_colab_quickstart.ipynb) |
+| `01_validation_colab.ipynb` | Run validation on the curated control set (with optional conda install of external binaries) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/01_validation_colab.ipynb) |
+| `02_yeast_screening_colab.ipynb` | Yeast proteome download / index / screen / PyMOL / experimental plan | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/02_yeast_screening_colab.ipynb) |
+| `03_results_analysis_colab.ipynb` | Load screening CSVs and plot distributions / tiers / feature heatmap | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/03_results_analysis_colab.ipynb) |
+| `04_experimental_prioritization_colab.ipynb` | Generate mutagenesis + DSF plans for top candidates | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tommaso-R-Marena/cryptic-ip-pipeline/blob/main/notebooks/04_experimental_prioritization_colab.ipynb) |
 
-Open with the `colab.research.google.com/github/...` URL pattern. The
-external scientific binaries (fpocket / FreeSASA / APBS / PyMOL) are not
-available on a vanilla Colab runtime; the notebooks document the
+The external scientific binaries (fpocket / FreeSASA / APBS / PyMOL) are
+not available on a vanilla Colab runtime; the notebooks document the
 fallback behaviour and a `condacolab + mamba` install path. See
 [`docs/colab.md`](docs/colab.md) for the full guide.
 
