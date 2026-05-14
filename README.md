@@ -139,6 +139,24 @@ See `IMPLEMENTATION_REPORT.md` for the v0.5 refactor summary, `docs/`
 for the per-stage documentation, and `IMPLEMENTATION_PLAN.md` for the
 checkpoint structure used to build it.
 
+### Run on Google Colab
+
+The `notebooks/` directory contains five Colab-ready notebooks:
+
+| Notebook | Purpose |
+|----------|---------|
+| `00_colab_quickstart.ipynb` | Clone, install, `check-env`, tests, synthetic smoke workflow |
+| `01_validation_colab.ipynb` | Run validation on the curated control set (with optional conda install of external binaries) |
+| `02_yeast_screening_colab.ipynb` | Yeast proteome download / index / screen / PyMOL / experimental plan |
+| `03_results_analysis_colab.ipynb` | Load screening CSVs and plot distributions / tiers / feature heatmap |
+| `04_experimental_prioritization_colab.ipynb` | Generate mutagenesis + DSF plans for top candidates |
+
+Open with the `colab.research.google.com/github/...` URL pattern. The
+external scientific binaries (fpocket / FreeSASA / APBS / PyMOL) are not
+available on a vanilla Colab runtime; the notebooks document the
+fallback behaviour and a `condacolab + mamba` install path. See
+[`docs/colab.md`](docs/colab.md) for the full guide.
+
 ## Technical Notes
 
 ### Chain-Aware Analysis
